@@ -71,7 +71,9 @@ func uberChallenge(root: Tree) -> [Int] {
             total = h+(h-1)
             arc = Array(repeating: 0, count: total)
         } else {
-            recursion(in: newChild, h: h+1)
+            recursion(in: consume newChild, h: h+1)
+            /* Consume: remove da memória o array newChild,
+             já que apara o resto do contexto não é mais necessário */
         }
         
         let i = ind
