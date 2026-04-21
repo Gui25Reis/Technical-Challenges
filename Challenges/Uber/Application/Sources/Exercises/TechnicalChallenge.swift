@@ -43,11 +43,11 @@
 
 class Tree {
     var value: Int
-    var childs: [Tree]
+    var children: [Tree]
     
-    init(value: Int, childs: [Tree] = []) {
+    init(value: Int, children: [Tree] = []) {
         self.value = value
-        self.childs = childs
+        self.children = children
     }
 }
 
@@ -55,7 +55,7 @@ class Tree {
  Time: O(n) | Memory: O(m)
  */
 func uberChallenge(root: Tree) -> [Int] {
-    guard !root.childs.isEmpty else { return [root.value] }
+    guard !root.children.isEmpty else { return [root.value] }
     
     lazy var arc = [Int]()
     var total = 0
@@ -64,7 +64,7 @@ func uberChallenge(root: Tree) -> [Int] {
     func recursion(in trees: [Tree], h: Int) {
         var newChild = [Tree]()
         for tree in trees {
-            newChild += tree.childs
+            newChild += tree.children
         }
         
         if newChild.isEmpty { // parada da recursão
@@ -109,7 +109,7 @@ func uberChallenge(root: Tree) -> [Int] {
     (O(h) frames), enquanto o BFS usa só O(w) no pico (w = largura máxima do nível).
  */
 func solutionAI(root: Tree) -> [Int] {
-    guard !root.childs.isEmpty else { return [root.value] }
+    guard !root.children.isEmpty else { return [root.value] }
 
     var levels: [(left: Int, right: Int)] = []
     var current = [root]
@@ -119,7 +119,7 @@ func solutionAI(root: Tree) -> [Int] {
 
         var next = [Tree]()
         for node in current {
-            next += node.childs
+            next += node.children
         }
         current = next
     }
@@ -148,14 +148,14 @@ func solution1Draft() {
     func ex(in root: Tree) {
         dict[height] = (root.value, root.value)
         
-        var trees = root.childs
+        var trees = root.children
         while !trees.isEmpty {
             height += 1
             dict[height] = (trees[0].value, trees[trees.count-1].value)
             
             var newChild = [Tree]()
             for tree in trees {
-                newChild += tree.childs
+                newChild += tree.children
             }
             trees = newChild
         }
