@@ -1,0 +1,9 @@
+[submodule "Challenges/Stone"]
+	path = Challenges/Stone
+	url = https://github.com/Gui25Reis/Stone-Challenge
+[submodule "Challenges/Itau"]
+	path = Challenges/Itau
+	url = https://github.com/Gui25Reis/Itau-Challenge
+[submodule "Challenges/Novibet"]
+	path = Challenges/Novibet
+	url = https://github.com/Gui25Reis/Novibet-Challenge
