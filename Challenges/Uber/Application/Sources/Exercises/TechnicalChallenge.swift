@@ -43,11 +43,11 @@
 
 class Tree {
     var value: Int
-    var childs: [Tree]
+    var children: [Tree]
     
-    init(value: Int, childs: [Tree] = []) {
+    init(value: Int, children: [Tree] = []) {
         self.value = value
-        self.childs = childs
+        self.children = children
     }
 }
 
@@ -55,7 +55,7 @@ class Tree {
  Time: O(n) | Memory: O(m)
  */
 func uberChallenge(root: Tree) -> [Int] {
-    guard !root.childs.isEmpty else { return [root.value] }
+    guard !root.children.isEmpty else { return [root.value] }
     
     lazy var arc = [Int]()
     var total = 0
@@ -64,14 +64,16 @@ func uberChallenge(root: Tree) -> [Int] {
     func recursion(in trees: [Tree], h: Int) {
         var newChild = [Tree]()
         for tree in trees {
-            newChild += tree.childs
+            newChild += tree.children
         }
         
         if newChild.isEmpty { // parada da recursão
             total = h+(h-1)
             arc = Array(repeating: 0, count: total)
         } else {
-            recursion(in: newChild, h: h+1)
+            recursion(in: consume newChild, h: h+1)
+            /* Consume: remove da memória o array newChild,
+             já que para o resto do contexto não é mais necessário */
         }
         
         let i = ind
@@ -89,6 +91,51 @@ func uberChallenge(root: Tree) -> [Int] {
     return arc
 }
 
+/* MARK: - Ai
+ Solução da IA (Claude)
+ Time: O(n) | Memory: O(w)  — onde w é a largura máxima da árvore
+
+ Abordagem iterativa com BFS (level-order traversal).
+
+ Por que é melhor que a recursão?
+ 1. Sem risco de stack overflow: recursão profunda (árvore com altura N) empilha N frames
+    na call stack. BFS iterativo usa uma fila em heap — sem limite prático de profundidade.
+
+ 2. Sem precisar de `consume`: a solução recursiva usa `consume newChild` exatamente porque
+    o array precisa ser liberado manualmente a cada frame. Aqui o loop sobrescreve `current`
+    a cada iteração e o ARC cuida sozinho.
+
+ 3. Memória similar: ambas são O(n). Mas a recursão ainda carrega o overhead da call stack
+    (O(h) frames), enquanto o BFS usa só O(w) no pico (w = largura máxima do nível).
+ */
+func solutionAI(root: Tree) -> [Int] {
+    guard !root.children.isEmpty else { return [root.value] }
+
+    var levels: [(left: Int, right: Int)] = []
+    var current = [root]
+
+    while !current.isEmpty {
+        levels.append((left: current[0].value, right: current[current.count - 1].value))
+
+        var next = [Tree]()
+        for node in current {
+            next += node.children
+        }
+        current = next
+    }
+
+    var arc = [Int]()
+    var right = [Int]()
+
+    for i in 0..<levels.count {
+        arc.append(levels[levels.count - 1 - i].left)  // esquerda de baixo pra cima
+        if i > 0 {
+            right.append(levels[i].right)               // direita de cima pra baixo
+        }
+    }
+
+    return arc + right
+}
 
 // MARK: - Drafts
 /*
@@ -101,14 +148,14 @@ func solution1Draft() {
     func ex(in root: Tree) {
         dict[height] = (root.value, root.value)
         
-        var trees = root.childs
+        var trees = root.children
         while !trees.isEmpty {
             height += 1
             dict[height] = (trees[0].value, trees[trees.count-1].value)
             
             var newChild = [Tree]()
             for tree in trees {
-                newChild += tree.childs
+                newChild += tree.children
             }
             trees = newChild
         }

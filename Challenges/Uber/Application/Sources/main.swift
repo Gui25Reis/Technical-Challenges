@@ -1,21 +1,21 @@
 func main() {
     let ex01 =
-    Tree(value: 4, childs: [
-        Tree(value: 5, childs: [
+    Tree(value: 4, children: [
+        Tree(value: 5, children: [
             Tree(value: 12),
             Tree(value: 1)
         ]),
-        Tree(value: 7, childs: [
+        Tree(value: 7, children: [
             Tree(value: 8)
         ])
     ])
     
     let ex02 =
-    Tree(value: 4, childs: [
+    Tree(value: 4, children: [
         Tree(value: 5),
-        Tree(value: 7, childs: [
+        Tree(value: 7, children: [
             Tree(value: 12),
-            Tree(value: 11, childs: [
+            Tree(value: 11, children: [
                 Tree(value: 13),
             ])
         ]),

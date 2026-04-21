@@ -17,12 +17,12 @@ final class TechnicalChallengeTests: XCTestCase {
         //     / \   \
         //    12   1   8
         let tree =
-        Tree(value: 4, childs: [
-            Tree(value: 5, childs: [
+        Tree(value: 4, children: [
+            Tree(value: 5, children: [
                 Tree(value: 12),
                 Tree(value: 1)
             ]),
-            Tree(value: 7, childs: [
+            Tree(value: 7, children: [
                 Tree(value: 8)
             ])
         ])
@@ -40,11 +40,11 @@ final class TechnicalChallengeTests: XCTestCase {
         //              \
         //              13
         let tree =
-        Tree(value: 4, childs: [
+        Tree(value: 4, children: [
             Tree(value: 5),
-            Tree(value: 7, childs: [
+            Tree(value: 7, children: [
                 Tree(value: 12),
-                Tree(value: 11, childs: [
+                Tree(value: 11, children: [
                     Tree(value: 13)
                 ])
             ]),
@@ -71,7 +71,7 @@ final class TechnicalChallengeTests: XCTestCase {
         //     / | \
         //    2  3  4
         let tree =
-        Tree(value: 1, childs: [
+        Tree(value: 1, children: [
             Tree(value: 2),
             Tree(value: 3),
             Tree(value: 4)
@@ -88,8 +88,8 @@ final class TechnicalChallengeTests: XCTestCase {
         //    |
         //    3
         let tree =
-        Tree(value: 1, childs: [
-            Tree(value: 2, childs: [
+        Tree(value: 1, children: [
+            Tree(value: 2, children: [
                 Tree(value: 3)
             ])
         ])
@@ -107,9 +107,9 @@ final class TechnicalChallengeTests: XCTestCase {
         //  /
         // 5
         let tree =
-        Tree(value: 1, childs: [
-            Tree(value: 2, childs: [
-                Tree(value: 4, childs: [
+        Tree(value: 1, children: [
+            Tree(value: 2, children: [
+                Tree(value: 4, children: [
                     Tree(value: 5)
                 ])
             ]),
