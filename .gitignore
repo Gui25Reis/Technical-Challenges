@@ -1,5 +1,8 @@
-## Tirando a pasta de configraçõa do .vscode 
+## Tirando a pasta de configraçõa do .vscode
 *.vscode
+
+## Claude Code
+.claude/
 
 ## removendo todos os executávies
 *.exe
