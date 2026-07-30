@@ -23,6 +23,7 @@ Centralized repository for technical challenges from selection processes I have 
 | [Itau](Challenges/Itau/) | ![Swift](https://img.shields.io/badge/Swift-FA7343?style=flat-square&logo=swift&logoColor=white) | ![Project](https://img.shields.io/badge/Project-2383E2?style=flat-square&logoColor=white) | Marvel API consumption focused on the characters endpoint |
 | [Novibet](Challenges/Novibet/) | ![Swift](https://img.shields.io/badge/Swift-FA7343?style=flat-square&logo=swift&logoColor=white) | ![Project](https://img.shields.io/badge/Project-2383E2?style=flat-square&logoColor=white) | Live games API with real-time match updates and per-game timers |
 | [Uber](Challenges/Uber/) | ![Swift](https://img.shields.io/badge/Swift-FA7343?style=flat-square&logo=swift&logoColor=white) | ![Exercise](https://img.shields.io/badge/Exercise-9065B0?style=flat-square&logoColor=white) | N-ary tree boundary traversal |
+| [DoorDash](Challenges/Doordash/) | ![Swift](https://img.shields.io/badge/Swift-FA7343?style=flat-square&logo=swift&logoColor=white) | ![Exercise](https://img.shields.io/badge/Exercise-9065B0?style=flat-square&logoColor=white) | Contains the coding rounds from their selection process |
 
 
 ## Author
