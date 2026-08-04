@@ -19,7 +19,8 @@ Technical-Challenges/
 │   ├── Stone/            ← submodule → github.com/Gui25Reis/Stone-Challenge
 │   ├── Itau/             ← submodule → github.com/Gui25Reis/Itau-Challenge
 │   ├── Novibet/          ← submodule → github.com/Gui25Reis/Novibet-Challenge
-│   └── Uber/             ← direct folder (migrated from Kings-Study)
+│   ├── Uber/             ← direct folder (migrated from Kings-Study)
+│   └── Doordash/         ← direct folder, contains all coding rounds (Round 1 - iOS Challenge, Round 2 - AI)
 ├── .gitignore
 ├── .gitmodules
 └── README.md
@@ -47,7 +48,7 @@ Stone, Itau, and Novibet are Git submodules. This means:
 - To make changes to a submodule's code, work inside that submodule's folder and commit there. The parent repo then records the updated pointer via a separate commit.
 - When cloning this repo, run `git submodule update --init` to populate the submodule folders.
 
-Uber is a **direct folder** — its code lives here, not in a separate repo.
+Uber and Doordash are **direct folders** — their code lives here, not in a separate repo.
 
 ---
 
